@@ -1,6 +1,7 @@
 import { upgradeChance, upgradeCosts } from "./data.js";
 
-document.getElementById("boxUpgradeButton").onclick = () => {
+document.getElementById("boxUpgradeButton").onclick = function () {
+  if (this.classList.contains("disabled")) return;
   const point = game.point;
   const cost = upgradeCosts.boxUpgrade(game.reinforcement);
   if (cost <= point) {
@@ -21,4 +22,8 @@ document.getElementById("boxUpgradeButton").onclick = () => {
       indicator.remove();
     }, 1000);
   }
+};
+
+document.getElementById("boxExchangeButton").onclick = function () {
+  if (this.classList.contains("disabled")) return;
 };
