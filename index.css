@@ -194,9 +194,11 @@
 
 .itemCount {
   position: absolute;
-  font-size: 1.5em;
+  font-size: 1.2em;
   bottom: 0;
-  left: 8vh;
   text-shadow: -2px -2px 0 var(--colTextStroke), 2px -2px 0 var(--colTextStroke),
     -2px 2px 0 var(--colTextStroke), 2px 2px 0 var(--colTextStroke);
+  min-width: calc(10vh);
+  margin-left: 2px;
+  text-align: right;
 }
