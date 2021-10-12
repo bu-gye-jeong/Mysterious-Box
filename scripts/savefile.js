@@ -3,6 +3,7 @@ const savePoint = "MysteriousBox";
 const initialGame = {
   _point: 0,
   _reinforcement: 0,
+  _items: new Array(6).fill(0),
 };
 window.game = {};
 

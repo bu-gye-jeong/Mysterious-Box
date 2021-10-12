@@ -11,4 +11,9 @@ export const setters = {
     document.getElementById("boxUpgradeCost").innerHTML =
       "Cost: " + upgradeCosts.boxUpgrade(v);
   },
+  items: (v) => {
+    [...document.getElementsByClassName("itemCount")].forEach((ele, idx) => {
+      ele.innerHTML = v[idx];
+    });
+  },
 };

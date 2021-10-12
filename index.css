@@ -17,6 +17,7 @@
   --colButtonClick: #666;
   --colPlus: #43e02b;
   --colMinus: #de2336;
+  --colTextStroke: #000;
 }
 
 #container {
@@ -97,15 +98,16 @@
   margin-left: 4.5vw;
   margin-top: 1vw;
   font-size: 2vw;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+  text-shadow: -1px -1px 0 var(--colTextStroke), 1px -1px 0 var(--colTextStroke),
+    -1px 1px 0 var(--colTextStroke), 1px 1px 0 var(--colTextStroke);
 }
 
 #box {
   position: relative;
-  background-image: url(./Resources/box.png);
+  background-image: url(./resources/box.png);
   background-size: contain;
   background-position: center center;
+  background-repeat: no-repeat;
   width: 8vw;
   height: 8vw;
 }
@@ -165,17 +167,32 @@
   display: none;
 }
 
-#moduleTab > div {
+#itemTab > div {
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
   background-position: left;
-  width: 10vh;
   height: 10vh;
-  line-height: 10vh;
-  padding-left: 12vh;
+  position: relative;
+  overflow: auto;
+  margin-bottom: 2vh;
 }
 
-#moduleTab :nth-child(1) {
-  background-image: url(./Resources/in1.png);
+.itemName {
+  font-size: 1.2em;
+  margin-top: calc(5vh - 1.1em);
+  margin-left: 12vh;
+}
+
+.itemDescription {
+  margin-left: 12vh;
+}
+
+.itemCount {
+  position: absolute;
+  font-size: 1.5em;
+  bottom: 0;
+  left: 8vh;
+  text-shadow: -2px -2px 0 var(--colTextStroke), 2px -2px 0 var(--colTextStroke),
+    -2px 2px 0 var(--colTextStroke), 2px 2px 0 var(--colTextStroke);
 }
