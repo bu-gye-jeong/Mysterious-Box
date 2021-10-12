@@ -103,7 +103,7 @@
 
 #box {
   position: relative;
-  background-image: url(/Resources/box.png);
+  background-image: url(./Resources/box.png);
   background-size: contain;
   background-position: center center;
   width: 8vw;
@@ -177,5 +177,5 @@
 }
 
 #moduleTab :nth-child(1) {
-  background-image: url(/Resources/in1.png);
+  background-image: url(./Resources/in1.png);
 }
