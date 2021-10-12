@@ -46,7 +46,7 @@
 .button:active {
   transform: translate(3px, 3px);
   background-color: var(--colButtonClick);
-  box-shadow: 0px 0px --colShadow;
+  box-shadow: 0px 0px var(--colShadow);
   transition: transform 0.1s cubic-bezier(1, 0, 0, 1),
     box-shadow 0.1s cubic-bezier(1, 0, 0, 1);
 }
