@@ -5,13 +5,78 @@
   font-size: 20px;
   user-select: none;
   margin: 0;
+  color: var(--colText);
+
+  --colBackground: #222;
+  --colTab: #333;
+  --colText: #bbb;
+  --colText2: #777;
+  --colShadow: #222;
+  --colButton: #282828;
+  --colButtonHover: #555;
+  --colButtonClick: #666;
+  --colPlus: #43e02b;
+  --colMinus: #de2336;
 }
 
 #container {
   height: 100vh;
   width: 100vw;
   display: flex;
-  background-color: #222;
+  background-color: var(--colBackground);
+}
+
+.button {
+  background-color: var(--colButton);
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  box-shadow: 3px 3px var(--colShadow);
+  transition: background-color 0.2s cubic-bezier(0, 0.5, 0.5, 1),
+    transform 0.05s cubic-bezier(1, 0, 0, 1),
+    box-shadow 0.05s cubic-bezier(1, 0, 0, 1);
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: var(--colButtonHover);
+  transition: background-color 0.2s cubic-bezier(0, 0.5, 0.5, 1);
+}
+
+.button:active {
+  transform: translate(3px, 3px);
+  background-color: var(--colButtonClick);
+  box-shadow: 0px 0px --colShadow;
+  transition: transform 0.1s cubic-bezier(1, 0, 0, 1),
+    box-shadow 0.1s cubic-bezier(1, 0, 0, 1);
+}
+
+.boxUpgradeIndicator {
+  position: absolute;
+  text-align: right;
+  right: 1vw;
+  font-size: 2vw;
+  animation-duration: 1s;
+  animation-name: falling;
+}
+
+.boxUpgradeIndicator.plus {
+  color: var(--colPlus);
+}
+.boxUpgradeIndicator.minus {
+  color: var(--colMinus);
+}
+
+@keyframes falling {
+  from {
+    top: 1vw;
+    opacity: 70%;
+  }
+
+  to {
+    top: 5vw;
+    opacity: 0%;
+  }
 }
 
 #sideBar {
@@ -19,17 +84,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #333;
+  background-color: var(--colTab);
   margin: 1em;
-  border-radius: 0.4em;
+  border-radius: 0.5em;
 }
 
 #sideBar > * {
   margin-top: 1vh;
-  color: #bbb;
+}
+
+#boxUpgrade {
+  margin-left: 4.5vw;
+  margin-top: 1vw;
+  font-size: 2vw;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 #box {
+  position: relative;
   background-image: url(/Resources/box.png);
   background-size: contain;
   background-position: center center;
@@ -43,28 +116,66 @@
   font-size: 1.1em;
 }
 
-.button {
-  background-color: #282828;
-  color: #bbb;
-  text-align: center;
-  padding: 0.5em;
-  border-radius: 0.5em;
-  box-shadow: 3px 3px #222;
-  transition: background-color 0.2s cubic-bezier(0, 0.5, 0.5, 1),
-    transform 0.05s cubic-bezier(1, 0, 0, 1),
-    box-shadow 0.05s cubic-bezier(1, 0, 0, 1);
+#boxExchangeButton {
+  margin-top: 2vh;
+  width: 13vw;
+  font-size: 1.1em;
 }
 
-.button:hover {
+/* general tabs */
+#tabContainer {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+#tabNavs {
+  display: flex;
+  height: 2em;
+  margin-top: 1em;
+}
+
+.tabNav {
+  background-color: var(--colTab);
+  min-width: 7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  padding: 0 0.5em 0 0.5em;
+  margin-left: 0.5em;
+}
+
+.tabNav:not(.selected) {
+  background-color: var(--colButton);
   cursor: pointer;
-  background-color: #555;
-  transition: background-color 0.2s cubic-bezier(0, 0.5, 0.5, 1);
 }
 
-.button:active {
-  transform: translate(3px, 3px);
-  background-color: #666;
-  box-shadow: 0px 0px #222;
-  transition: transform 0.1s cubic-bezier(1, 0, 0, 1),
-    box-shadow 0.1s cubic-bezier(1, 0, 0, 1);
+#tabs {
+  background-color: var(--colTab);
+  padding: 1em;
+  border-radius: 0.5em;
+  flex-grow: 1;
+}
+
+.tab:not(.selected) {
+  display: none;
+}
+
+#moduleTab > div {
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-position: left;
+  width: 10vh;
+  height: 10vh;
+  line-height: 10vh;
+  padding-left: 12vh;
+}
+
+#moduleTab :nth-child(1) {
+  background-image: url(/Resources/in1.png);
 }

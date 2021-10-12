@@ -5,9 +5,10 @@ export const setters = {
     document.getElementById("point").innerHTML = v + " pt";
   },
   reinforcement: (v) => {
+    document.getElementById("boxUpgrade").innerHTML = "+" + v;
     document.getElementById("boxUpgradeChance").innerHTML =
       (upgradeChance(v) * 100).toFixed(1) + "%";
     document.getElementById("boxUpgradeCost").innerHTML =
-      "Cost: " + upgradeCosts(v);
+      "Cost: " + upgradeCosts.boxUpgrade(v);
   },
 };

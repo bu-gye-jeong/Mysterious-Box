@@ -16,3 +16,7 @@ Object.keys(game).forEach((key) => {
     get: () => game[key],
   });
 });
+
+Object.keys(game).forEach((key) => {
+  game[key.substring(1)] = game[key];
+});

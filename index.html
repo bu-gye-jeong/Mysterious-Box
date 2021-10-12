@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./index.css" />
     <script src="./scripts/index.js" type="module" defer></script>
     <script src="./scripts/events.js" type="module" defer></script>
+    <script src="./scripts/utils.js" defer></script>
     <title>Mysterious Box</title>
   </head>
   <body>
@@ -13,9 +14,25 @@
       <div id="sideBar">
         <div id="point">5342798 pt</div>
         <div id="boxUpgradeChance">48%</div>
-        <div id="box"></div>
+        <div id="box">
+          <div id="boxUpgrade">+0</div>
+        </div>
         <div id="boxUpgradeCost">Cost: 0</div>
         <div id="boxUpgradeButton" class="button">Upgrade</div>
+        <div id="boxExchangeButton" class="button">Exchange</div>
+      </div>
+      <div id="tabContainer">
+        <nav id="tabNavs">
+          <div class="tabNav selected" onclick="goTab(0)"><div>Items</div></div>
+          <div class="tabNav" onclick="goTab(1)"><div>SANS</div></div>
+        </nav>
+        <div id="tabs">
+          <div class="tab selected" id="moduleTab">
+            <div>???</div>
+            <div>item2</div>
+          </div>
+          <div class="tab">헋 여긴 테스트하려고 만든 공간</div>
+        </div>
       </div>
     </div>
   </body>
