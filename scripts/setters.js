@@ -3,6 +3,10 @@ import { upgradeChance, upgradeCosts } from "./data.js";
 export const setters = {
   point(v) {
     document.getElementById("point").innerHTML = v + " pt";
+    const buttonClasses = document.getElementById("boxUpgradeButton").classList;
+    upgradeCosts.boxUpgrade(game.reinforcement) <= v
+      ? buttonClasses.remove("disabled")
+      : buttonClasses.add("disabled");
   },
   reinforcement(v) {
     document.getElementById("boxUpgrade").innerHTML = "+" + v;
